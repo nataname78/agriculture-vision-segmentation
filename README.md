@@ -1,6 +1,6 @@
 # Segmentation d'anomalies agricoles (Agriculture-Vision)
 
-Lab 2 du cours *AI for Agriculture & Environment* (aivancity, PGE5). Segmentation sémantique d'anomalies sur des images aériennes de champs (RGB + proche infrarouge), en PyTorch, avec des **prédictions écrites avant les expériences** puis comparées aux mesures.
+Lab 2 du cours *AI for Agriculture & Environment* (aivancity, PGE5), réalisé en binôme. Segmentation sémantique d'anomalies sur des images aériennes de champs (RGB + proche infrarouge), en PyTorch, avec des **prédictions écrites avant les expériences** puis comparées aux mesures.
 
 **Rapport : [rapport_evaluation.pdf](rapport_evaluation.pdf)** · Carnet : [lab2_agriculture_vision.ipynb](lab2_agriculture_vision.ipynb) · Chiffres bruts : [results_summary.json](results_summary.json)
 
