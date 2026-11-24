@@ -1,0 +1,140 @@
+{
+  "classes": [
+    "background",
+    "double_plant",
+    "drydown",
+    "endrow",
+    "nutrient_deficiency",
+    "planter_skip",
+    "storm_damage",
+    "water",
+    "waterway",
+    "weed_cluster"
+  ],
+  "class_frequency": [
+    0.6528199677343888,
+    0.009666285887119078,
+    0.1729939422050739,
+    0.007855633465092191,
+    0.06639472900286676,
+    0.005353158228872698,
+    0.002643630941899063,
+    0.006634483098107656,
+    0.005600580354718732,
+    0.07003758908186117
+  ],
+  "imbalance_ratio": 65.43800780331425,
+  "split_sizes_field": {
+    "train": 6150,
+    "val": 1124,
+    "test": 1127
+  },
+  "baselines": {
+    "ndvi_fg_iou": 0.3019684851169586,
+    "rf_fg_iou": 0.2532527446746826
+  },
+  "grid": {
+    "C1": {
+      "cfg": {
+        "name": "C1",
+        "arch": "unet",
+        "use_nir": false,
+        "use_ndvi": false,
+        "loss": "wce"
+      },
+      "miou_mean": 0.051660475631554924,
+      "miou_std": 0.0045868442973609124
+    },
+    "C2": {
+      "cfg": {
+        "name": "C2",
+        "arch": "unet",
+        "use_nir": true,
+        "use_ndvi": false,
+        "loss": "wce"
+      },
+      "miou_mean": 0.061978187412023544,
+      "miou_std": 0.009220715817999667
+    },
+    "C3": {
+      "cfg": {
+        "name": "C3",
+        "arch": "unet",
+        "use_nir": true,
+        "use_ndvi": true,
+        "loss": "wce"
+      },
+      "miou_mean": 0.05250712111592293,
+      "miou_std": 0.003664396792122428
+    },
+    "C4": {
+      "cfg": {
+        "name": "C4",
+        "arch": "unet",
+        "use_nir": true,
+        "use_ndvi": true,
+        "loss": "dice"
+      },
+      "miou_mean": 0.05942786733309428,
+      "miou_std": 0.0039700133948388965
+    },
+    "C5": {
+      "cfg": {
+        "name": "C5",
+        "arch": "unet",
+        "use_nir": true,
+        "use_ndvi": false,
+        "loss": "dice"
+      },
+      "miou_mean": 0.05594462404648463,
+      "miou_std": 0.005464011807295018
+    },
+    "C6": {
+      "cfg": {
+        "name": "C6",
+        "arch": "unet",
+        "use_nir": true,
+        "use_ndvi": false,
+        "loss": "focal"
+      },
+      "miou_mean": 0.0748018945256869,
+      "miou_std": 0.011417532080147305
+    },
+    "C7": {
+      "cfg": {
+        "name": "C7",
+        "arch": "unet",
+        "use_nir": true,
+        "use_ndvi": false,
+        "loss": "tversky"
+      },
+      "miou_mean": 0.056318167597055435,
+      "miou_std": 0.00912332093192101
+    },
+    "C8": {
+      "cfg": {
+        "name": "C8",
+        "arch": "deeplab",
+        "use_nir": true,
+        "use_ndvi": false,
+        "loss": "wce"
+      },
+      "miou_mean": 0.08864707748095195,
+      "miou_std": 0.025860117784088813
+    }
+  },
+  "leakage": {
+    "field": 0.061978187412023544,
+    "naive": 0.10375860581795375
+  },
+  "best_config": "C8",
+  "calibration": {
+    "ece": 0.1605149380867772,
+    "best_th": 0.65,
+    "abstain_frac": 0.3640984307058614
+  },
+  "cost_model": {
+    "COST_FP": 5.0,
+    "COST_FN": 20.0
+  }
+}
